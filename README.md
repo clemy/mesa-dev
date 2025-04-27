@@ -31,7 +31,7 @@ git clone git@github.com:clemy/vulkan-video-encode-simple.git
 
 ### Vulkan Conformance Test Suite (CTS) with compatibility patches
 ```cmd
-git clone git@github.com:clemy/VK-GL-CTS.git -b lavapipe_test
+git clone git@github.com:clemy/VK-GL-CTS.git -b lavapipe_test_2504
 ```
 
 ## Configure paths
@@ -81,6 +81,7 @@ On the pre-configured command prompt call:
 ```cmd
 rem Fetch dependencies
 python VK-GL-CTS\external\fetch_sources.py
+python VK-GL-CTS\external\fetch_video_encode_samples.py
 
 rem Compile CTS
 cmake -B VK-GL-CTS-build VK-GL-CTS -DCMAKE_BUILD_TYPE=Release -DSELECTED_BUILD_TARGETS="deqp-vk"
@@ -105,3 +106,5 @@ For developing Lavapipe in Visual Studio follow these steps:
 2. Call `llvm\build-llvm-debug.cmd` to compile a LLVM version linked with the debug runtime library.
 3. Call `build-lavapipe-debug-vs.cmd` to create VS projects.
 4. Open the VS solution with `start mesa-build-vs-debug\mesa.sln`.
+5. Create a VS solution for CTS: `cmake -B VK-GL-CTS-build-vs-debug VK-GL-CTS -G "Visual Studio 17 2022"`
+6. Open CTS solution: `start VK-GL-CTS-build-vs-debug\dEQP-Core-default.sln`
