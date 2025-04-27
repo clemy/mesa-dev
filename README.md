@@ -104,4 +104,4 @@ For developing Lavapipe in Visual Studio follow these steps:
 1. Use `setpath-debug.cmd` to open a command prompt.
 2. Call `llvm\build-llvm-debug.cmd` to compile a LLVM version linked with the debug runtime library.
 3. Call `build-lavapipe-debug-vs.cmd` to create VS projects.
-4. Open the VS solution with `start `.
+4. Open the VS solution with `start mesa-build-vs-debug\mesa.sln`.
