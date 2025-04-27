@@ -1,0 +1,6 @@
+python
+packaging
+mako
+meson
+ninja
+pyyaml

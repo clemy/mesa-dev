@@ -1,0 +1,7 @@
+{
+    "ICD": {
+        "api_version": "1.3.295",
+        "library_path": "mesa-build-vs-debug\\src\\gallium\\targets\\lavapipe\\vulkan_lvp.dll"
+    },
+    "file_format_version": "1.0.0"
+}
