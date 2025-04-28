@@ -1,9 +1,9 @@
 # Mesa Development Environment
 
 ## Tested environment
-* Windows 11 24H2
-* Visual Studio 2022 Community (with C++, git & cmake)
-* Miniforge 3 (https://conda-forge.org/download/)
+* Windows 11 Pro 24H2 26100.3915
+* Visual Studio 2022 Community 17.13.6 (with C++, git & cmake)
+* Miniconda3 py312_25.1.1-2 (64-bit) (https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe)
 * Vulkan SDK 1.4.304.1
 * FFMPEG (or VLC) to view h264 files
 
@@ -35,10 +35,10 @@ git clone git@github.com:clemy/VK-GL-CTS.git -b lavapipe_test_2504
 ```
 
 ## Configure paths
-Edit `config.cmd` and configure the path to Visual Studio and Miniforge3.
+Edit `config.cmd` and configure the path to Visual Studio and Conda.
 
 ## Setup environment
-Execute `create-environment.cmd`. This will create a miniforge environment.
+Execute `create-environment.cmd`. This will create a conda environment.
 
 ## Open a prompt with all path set
 Execute `setpath.cmd`. This will open a prompt with a pre-configured environment.

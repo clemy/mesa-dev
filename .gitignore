@@ -16,6 +16,9 @@ mesa-installed-debug-vs
 vulkan-video-encode-simple
 vulkan-video-encode-simple-build
 
+vulkan-video-encode-minih264
+vulkan-video-encode-minih264-build
+
 VK-GL-CTS
 VK-GL-CTS-build
 VK-GL-CTS-build-vs-debug

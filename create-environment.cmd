@@ -3,7 +3,7 @@ call "%~dp0\config.cmd"
 
 cd /d "%PROJECT%"
 rem Activate Miniforge environment
-call "%MINIFORGE3%\Scripts\activate.bat" "%MINIFORGE3%"
+call "%CONDA%\Scripts\activate.bat" "%CONDA%"
 rem Create an environment with all required packages
-call mamba create --name %MINIFORGE3_ENV% --file requirements.txt
-call mamba activate %MINIFORGE3_ENV%
+call conda create --name %CONDA_ENV% --file requirements.txt
+call conda activate %CONDA_ENV%
