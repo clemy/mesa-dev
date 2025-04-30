@@ -1,0 +1,8 @@
+/mesa/
+/mesa.build/
+/mesa.installed/
+/vulkan-video-encode-simple/
+/vulkan-video-encode-simple.build/
+/VK-GL-CTS/
+/VK-GL-CTS.build/
+/TestResults.qpa
