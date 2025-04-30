@@ -3,17 +3,27 @@
 ## Tested environment
 * Windows 11 Pro 24H2 26100.3915
 * Visual Studio 2022 Community 17.13.6 (with C++, git & cmake)
-* Miniconda3 py312_25.1.1-2 (64-bit) (https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe)
+* Miniconda3 py312_25.1.1-2 (64-bit)
+  (https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe)
 * Vulkan SDK 1.4.304.1
 * FFMPEG (or VLC) to view h264 files
 
+## Get the development environment package
+```cmd
+git clone git@github.com:clemy/mesa-dev.git
+```
+
+For Windows Subsystem for Linux (WSL) see `mesa-dev\linux-wsl\README.md`.
+
 ## Get dependencies
-Get all dependencies and store them in sub directories of this project.
+Get all dependencies and store them in sub directories of `mesa-dev`.
 
 ### LLVM
-Download LLVM 18.1.8 and extract into sub directories:
-* https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/llvm-18.1.8.src.tar.xz -> llvm/llvm
-* https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/cmake-18.1.8.src.tar.xz -> llvm/cmake
+Download LLVM 18.1.8 and extract into sub directory `mesa-dev\llvm\llvm`:  
+https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/llvm-18.1.8.src.tar.xz
+
+Download the LLVM cmake package and extract into sub directory `mesa-dev\llvm\cmake`:  
+https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/cmake-18.1.8.src.tar.xz
 
 ### Flex & Bison
 Download and extract the Windows Flex & Bison zip:
@@ -41,7 +51,8 @@ Edit `config.cmd` and configure the path to Visual Studio and Conda.
 Execute `create-environment.cmd`. This will create a conda environment.
 
 ## Open a prompt with all path set
-Execute `setpath.cmd`. This will open a prompt with a pre-configured environment.
+Execute `setpath.cmd`.
+This will open a prompt with a pre-configured environment.
 
 ## Build LLVM
 On the pre-configured command prompt call:
@@ -84,7 +95,8 @@ python VK-GL-CTS\external\fetch_sources.py
 python VK-GL-CTS\external\fetch_video_encode_samples.py
 
 rem Compile CTS
-cmake -B VK-GL-CTS-build VK-GL-CTS -DCMAKE_BUILD_TYPE=Release -DSELECTED_BUILD_TARGETS="deqp-vk"
+cmake -B VK-GL-CTS-build VK-GL-CTS -DCMAKE_BUILD_TYPE=Release ^
+        -DSELECTED_BUILD_TARGETS="deqp-vk"
 cmake --build VK-GL-CTS-build --config Release -j 10
 
 rem Enable real GPU as first and Lavapipe as second Vulkan device
@@ -103,8 +115,10 @@ Release\deqp-vk -n dEQP-VK.video.encode.h264.* --deqp-vk-device-id=2
 For developing Lavapipe in Visual Studio follow these steps:
 
 1. Use `setpath-debug.cmd` to open a command prompt.
-2. Call `llvm\build-llvm-debug.cmd` to compile a LLVM version linked with the debug runtime library.
+2. Call `llvm\build-llvm-debug.cmd` to compile a LLVM version
+   linked with the debug runtime library.
 3. Call `build-lavapipe-debug-vs.cmd` to create VS projects.
 4. Open the VS solution with `start mesa-build-vs-debug\mesa.sln`.
-5. Create a VS solution for CTS: `cmake -B VK-GL-CTS-build-vs-debug VK-GL-CTS -G "Visual Studio 17 2022"`
+5. Create a VS solution for CTS:
+   `cmake -B VK-GL-CTS-build-vs-debug VK-GL-CTS -G "Visual Studio 17 2022"`
 6. Open CTS solution: `start VK-GL-CTS-build-vs-debug\dEQP-Core-default.sln`
